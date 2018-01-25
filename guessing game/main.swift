@@ -9,36 +9,49 @@
 import Foundation
 
 //Generate a random number
+
 var randomNumber = Int(arc4random_uniform(100))
 var guess: Int?
+var tries = 1
+var again: String
 
-
-//Ask for user input
-
-print("Guess a number")
-//Take user input
-for _ in 0...4 {
-}
+print("Please guess a number.")
 guess = Int(readLine()!)!
 
-//Correct guess
+//Determine wrong or right(Loop until correct)
 
-if randomNumber == guess {
-    print("That's right")
-} else if randomNumber > guess! {
-    print("The number was higher 🤔")
-} else if randomNumber < guess! {
-    print("The number was lower 🤔")
-}; while randomNumber != guess! {
-    print("Try again")
+while guess != randomNumber && tries < 5 {
+    
+    if randomNumber > guess!  {
+        print("The number was higher! 🤦‍♂️")
+    } else if randomNumber < guess! {
+        print("The number was lower! 🤦‍♂️")
+    }
+    print("Guess again")
     guess = Int(readLine()!)!
+    tries += 1
 }
-
-//Determine wrong or right(loop until correct)
 
 //If correct ask if they want to play again
 
-//If incorrect tell them the correct answer and ask if they want to play again
+if randomNumber == guess! {
+    print("YOU WON !!!!!!!! 🎉")
+}
 
+//If incorrect, tell them the correct number, then ask if they want to play again
 
+if tries == 5 {
+    print("That's enough")
+    print("The correct answer was \(randomNumber)")
+}
+
+print("Do you want to play again? Y/N")
+again = String!(readLine()!)!
+if again.contains("y") {
+    tries -= 5
+    
+}
+if again.contains("n") {
+    
+}
 
