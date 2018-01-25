@@ -9,24 +9,36 @@
 import Foundation
 
 //Generate a random number
-let randomNumber = arc4random_uniform(100)
+var randomNumber = Int(arc4random_uniform(100))
+var guess: Int?
+
+
 //Ask for user input
+
 print("Guess a number")
 //Take user input
-var guess = readLine()
-//Determine wrong or right(loop until correct)
-if Int(guess!) == Int(randomNumber) {
-    print("That's right")
-} else if Int(guess!) != Int(randomNumber) {
-    print("That's not right")
-} else if Int(randomNumber) <= Int() {
-    print("Guess higher")
-} else if Int(randomNumber) >= Int() {
-    print("Guess lower")
+for _ in 0...4 {
 }
+guess = Int(readLine()!)!
+
+//Correct guess
+
+if randomNumber == guess {
+    print("That's right")
+} else if randomNumber > guess! {
+    print("The number was higher 🤔")
+} else if randomNumber < guess! {
+    print("The number was lower 🤔")
+}; while randomNumber != guess! {
+    print("Try again")
+    guess = Int(readLine()!)!
+}
+
+//Determine wrong or right(loop until correct)
+
 //If correct ask if they want to play again
 
-//If incorrect tell them the correct answer adn ask if they want to play again
+//If incorrect tell them the correct answer and ask if they want to play again
 
 
 
