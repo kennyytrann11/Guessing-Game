@@ -14,9 +14,15 @@ var randomNumber = Int(arc4random_uniform(100))
 var guess: Int?
 var tries = 1
 var again: String
+var playingGame = true
+
 
 print("Please guess a number.")
-guess = Int(readLine()!)!
+guess = Int(readLine()!)
+while guess == nil {
+    print("Please guess a NUMBER")
+    guess = Int(readLine()!)
+}
 
 //Determine wrong or right(Loop until correct)
 
@@ -31,6 +37,8 @@ while guess != randomNumber && tries < 5 {
     guess = Int(readLine()!)!
     tries += 1
 }
+
+
 
 //If correct ask if they want to play again
 
@@ -49,9 +57,16 @@ print("Do you want to play again? Y/N")
 again = String!(readLine()!)!
 if again.contains("y") {
     tries -= 5
-    
-}
-if again.contains("n") {
-    
+    playingGame = true
 }
 
+    if again.contains("n") {
+    print("OK, come again")
+    playingGame = false
+}
+
+while playingGame {
+    if playingGame == true {
+        
+    }
+}
