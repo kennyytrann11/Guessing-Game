@@ -16,6 +16,7 @@ var tries = 1
 var again: String
 var playingGame = true
 
+while playingGame == true {
 
 print("Please guess a number.")
 guess = Int(readLine()!)
@@ -39,16 +40,15 @@ while guess != randomNumber && tries < 5 {
 }
 
 
-
 //If correct ask if they want to play again
 
 if randomNumber == guess! {
     print("YOU WON !!!!!!!! 🎉")
-}
+
 
 //If incorrect, tell them the correct number, then ask if they want to play again
 
-if tries == 5 {
+} else if tries == 5 {
     print("That's enough")
     print("The correct answer was \(randomNumber)")
 }
@@ -56,17 +56,15 @@ if tries == 5 {
 print("Do you want to play again? Y/N")
 again = String!(readLine()!)!
 if again.contains("y") {
-    tries -= 5
+    tries = 1
     playingGame = true
 }
-
+    
+    
     if again.contains("n") {
-    print("OK, come again")
-    playingGame = false
-}
-
-while playingGame {
-    if playingGame == true {
-        
+        print("OK, come again")
+        playingGame = false
     }
 }
+
+//ooh yeah
